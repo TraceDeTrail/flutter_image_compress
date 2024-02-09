@@ -24,19 +24,17 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    compileSdkVersion 34
+
     if (project.android.hasProperty("namespace")) {
         namespace 'com.fluttercandies.flutter_image_compress'
     }
-
-    compileSdkVersion 31
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    defaultConfig {
-        minSdkVersion 16
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
